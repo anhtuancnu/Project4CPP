@@ -46,7 +46,7 @@ parser.setTags(START_TAG, END_TAG);
 char *charData = strdup(filecontents.c_str());
 parser.getDataBetweenTags(charData, storageForData);
 	//TODO  write to file and to screen
-	if(ourFile.is_open()){
+	if(outFile.is_open()){
 		for
 	}
 
