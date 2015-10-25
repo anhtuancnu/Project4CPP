@@ -1,4 +1,4 @@
-﻿Build started 10/22/2015 9:03:49 PM.
+﻿Build started 10/24/2015 9:44:27 PM.
      1>Project "E:\Class\2015 Fall\GitHub\Project4CPP\FileReader\FileReader.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\FileReader.pdb" /Gd /TP /analyze- /errorReport:prompt FileReader.cpp
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.33
+Time Elapsed 00:00:01.25

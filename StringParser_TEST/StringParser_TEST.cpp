@@ -25,6 +25,13 @@ void foreach(std::vector<std::string> myVector){
 int main(){
 	//TODO open file, if not there ask for a different file or exit
 
+	std::string fileContents = "";
+	KP_FileReaderClass::FileReader aFileReader;
+
+	aFileReader.getFileContents(TEST_FILE_NAME, fileContents);
+
+
+
 	//got file data, this is a bogus time and memory wasting step
 	//whose sole purpose is to provide a way to pass
 	//in a non const pointer to getDataBetweenTags(..) without casting
