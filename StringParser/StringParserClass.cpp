@@ -24,8 +24,8 @@ int StringParserClass::getLastError(){
 bool StringParserClass::setTags(const char *pStartTag, const char *pEndTag){
 	
 				//length of both
-				int sl= strlen(pStartTag)++;
-				int el = strlen(pEndTag)++;
+				int sl= strlen(pStartTag)+1;
+				int el = strlen(pEndTag)+1;
 
 				//initialize memory space to both
 				StringParserClass::pStartTag = (char*)malloc(sl);
