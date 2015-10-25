@@ -39,12 +39,16 @@ int main(){
 	std::copy(filecontents.begin(), filecontents.end(), back_inserter(myLine));*/
 
 	//TODO  create an instance of the stringparser
-
+KP_StringParserClass::StringParserClass parser;
 	//TODO set the tags
-
+parser.setTags(START_TAG, END_TAG);
 	//TODO pull out the data
-
+char *charData = strdup(filecontents.c_str());
+parser.getDataBetweenTags(charData, storageForData);
 	//TODO  write to file and to screen
+	if(ourFile.is_open()){
+		for
+	}
 
 }
 
