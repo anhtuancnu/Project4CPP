@@ -42,9 +42,9 @@ bool StringParserClass::setTags(const char *pStartTag, const char *pEndTag){
 				}
 				return areTagsSet;
 		}
-bool StringParserClass::getDataBetweenTags(char *pDataSearch, vector<string> &myVect){
+bool StringParserClass::getDataBetweenTags(char *pDataToSearchThru, vector<string> &myVector){
 	
-	char *sTag = pDataSearch;
+	char *sTag = pDataToSearchThru;
 	bool notEnd = true;
 	while(notEnd){
 		char *eTag = 0;
@@ -72,7 +72,7 @@ bool StringParserClass::getDataBetweenTags(char *pDataSearch, vector<string> &my
 		}
 		if (data != ""){
 			//add data
-			myVect.push_back(data);
+			myVector.push_back(data);
 		}
 		else{
 			lastError = ERROR_DATA_NULL;
@@ -87,27 +87,27 @@ bool StringParserClass::getDataBetweenTags(char *pDataSearch, vector<string> &my
 	cleanup();
 	return SUCCEEDED;
 }
-bool StringParserClass::findTag(char *pTagToLookFor, char *&pS, char *&pE){
+bool StringParserClass::findTag(char *pTagToLookFor, char *&pStart, char *&pEnd){
 	
 	int i = 0;
-	while(*(pS + i) != '\0'){
+	while(*(pStart + i) != '\0'){
 		int k = i;
 		int j = 0;
-		if(*(pS + k) == *(pTagToLookFor + j)){
-			while(*(pS + k) == *(pTagToLookFor + j)){
+		if(*(pStart + k) == *(pTagToLookFor + j)){
+			while(*(pStart + k) == *(pTagToLookFor + j)){
 			char *t = (pStart + k);
 			++k;
 			++j;
 			if(*(pS + k) == '>'){
-				pS = pS + i;
-				pE = pS + j;
+				pStart = pStart + i;
+				pEnd = pStart + j;
 				return true;
 			}
 		}
 	}
 	++i;
 }
-pE = pS + i;
+pEnd = pStart + i;
 return false;
 }
 void StringParser::cleanup(){
