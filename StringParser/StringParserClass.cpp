@@ -11,8 +11,8 @@ using namespace KP_StringParserClass;
 //TODO Fill this in
 
 StringParserClass::StringParserClass(void){
-		char	*pStartMem = new char;
-		char	*pEndMem = new char;
+		char	*pStartTag = new char;
+		char	*pEndTag = new char;
 		bool	areTagsSet = false;
 		int		lastError=0;
 }
@@ -21,20 +21,20 @@ int StringParserClass::getLastError(){
 
 	return lastError;
 }
-bool StringParserClass::setTags(const char *pStartMem, const char *pEndMem){
+bool StringParserClass::setTags(const char *pStartTag, const char *pEndTag){
 	
 				//length of both
-				int sl= strlen(pStartMem)++;
-				int el = strlen(pEndMem)++;
+				int sl= strlen(pStartTag)++;
+				int el = strlen(pEndTag)++;
 
 				//initialize memory space to both
-				StringParserClass::pStartMem = (char*)malloc(sl);
-				StringParserClass::pEndMem = (char*)malloc(el);
+				StringParserClass::pStartTag = (char*)malloc(sl);
+				StringParserClass::pEndTag = (char*)malloc(el);
 
 				//set memeory space to pStart
-				strncpy(StringParserClass::pStartMem,pStartMem,sl);
-				strncpy(StringParserClass::pEndMem,pEndMem,el);
-				if(*StringParserClass::pStartMem != NULL && *StringParserClass::pEndMem != NULL){
+				strncpy(StringParserClass::pStartTag,pStartTag,sl);
+				strncpy(StringParserClass::pEndTag,pEndTag,el);
+				if(*StringParserClass::pStartTag != NULL && *StringParserClass::pEndTag != NULL){
 					areTagsSet = true;
 				}else{
 					lastError = ERROR_DATA_NULL;
@@ -50,13 +50,13 @@ bool StringParserClass::getDataBetweenTags(char *pDataSearch, vector<string> &my
 		char *eTag = 0;
 		
 		//find start mem space
-		findTag(pStartMem, sTag, eTag);
+		findTag(pStartTag, sTag, eTag);
 		
 		char *sTag2 = eTag;
 		char *eTag2 = 0;
 		
 		//find end mem space
-		findTag(pEndMem, sTag2, eTag2);
+		findTag(pEndTag, sTag2, eTag2);
 		
 		int i = 1;
 		
@@ -87,14 +87,14 @@ bool StringParserClass::getDataBetweenTags(char *pDataSearch, vector<string> &my
 	cleanup();
 	return SUCCEEDED;
 }
-bool StringParserClass::findTag(char *pLookForSpace, char *&pS, char *&pE){
+bool StringParserClass::findTag(char *pTagToLookFor, char *&pS, char *&pE){
 	
 	int i = 0;
 	while(*(pS + i) != '\0'){
 		int k = i;
 		int j = 0;
-		if(*(pS + k) == *(pLookForSpace + j)){
-			while(*(pS + k) == *(pLookForSpace + j)){
+		if(*(pS + k) == *(pTagToLookFor + j)){
+			while(*(pS + k) == *(pTagToLookFor + j)){
 			char *t = (pStart + k);
 			++k;
 			++j;
@@ -111,10 +111,10 @@ pE = pS + i;
 return false;
 }
 void StringParser::cleanup(){
-	if (pStartMem){
-		delete[] pStartMem;
+	if (pStartTag){
+		delete[] pStartTag;
 	}
-	if(pEndMem){
-		delete[] pEndMem;
+	if(pEndTag){
+		delete[] pEndTag;
 	}
 }
